@@ -1,0 +1,101 @@
+/* ========================================
+   CUSTOM CURSOR
+   ======================================== */
+
+/* Hide default cursor on desktop */
+@media (hover: hover) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* ===== Main Cursor ===== */
+.custom-cursor {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* ===== Hover State ===== */
+.custom-cursor--hover {
+  width: 40px;
+  height: 40px;
+  background: rgba(102, 126, 234, 0.15);
+  border: 2px solid #667eea;
+  box-shadow: 0 0 60px rgba(102, 126, 234, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.custom-cursor--hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #667eea;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+}
+
+/* ===== Follower ===== */
+.custom-cursor__follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(102, 126, 234, 0.15);
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-cursor__follower--hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* ===== Glow ===== */
+.custom-cursor__glow {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 99997;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.custom-cursor__glow--active {
+  opacity: 1;
+}
+
+/* ========================================
+   TOUCH DEVICES
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .custom-cursor,
+  .custom-cursor__follower,
+  .custom-cursor__glow {
+    display: none !important;
+  }
+}
