@@ -105,7 +105,7 @@ function Hero() {
         <video 
           ref={videoRef}
           className="hero__video-bg"
-          src="/src/assets/images/intro.mp4"
+          src="/video/intro.mp4"
           autoPlay
           loop
           muted
