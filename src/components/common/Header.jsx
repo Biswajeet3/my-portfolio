@@ -108,7 +108,7 @@ function Header() {
   return (
     <>
       <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
-        <div className="header__container">
+        <div className="header__container" style={{ width: '100%' }}>
           {/* Logo - Scroll to top */}
           <a 
             href="#home" 
